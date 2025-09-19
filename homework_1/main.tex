@@ -1,0 +1,89 @@
+\documentclass[a4paper,12pt]{article}
+
+% Math packages
+\usepackage{amsmath, amssymb, amsthm}
+
+\begin{document}
+
+\section*{Question 1}
+
+\subsection*{a)}
+The disjoint cycle decomposition of $f$ is found by reading it off its matrix notation:
+\[
+f = (1\;2\;3)(4\;5\;6\;8)(7)
+\]
+
+\subsection*{b)}
+By Definition 2.3.9, the cycle type of $f$ is: $(1, 0, 1, 1, 0, 0, 0, 0)$
+
+\subsection*{c)}
+As done in the course notes, we find $f^{-1}$ by swapping the rows in the matrix notation of $f$:
+
+\begin{equation}\label{eq:f_inverse}
+f^{-1} = 
+\begin{pmatrix}
+    2 & 3 & 1 & 5 & 6 & 8 & 7 & 4 \\
+    1 & 2 & 3 & 4 & 5 & 6 & 7 & 8
+\end{pmatrix}
+= 
+\begin{pmatrix}
+    1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+    3 & 1 & 2 & 8 & 4 & 5 & 7 & 6
+\end{pmatrix}
+\end{equation}
+
+Reading off the cycles from Equation \ref{eq:f_inverse} (or realizing that we simply reverse all the disjoint cycles individually):
+\[
+f^{-1} = (3\;2\;1)(8\;6\;5\;4)(7)
+\]
+We can now read off the cycle type (or, again, realize that we have simply reversed each disjoint cycle, preserving their lengths) as $(1, 0, 1, 1, 0, 0, 0, 0)$.
+\\
+
+For an arbitrary $n \in \mathbb{N}$, an arbitrary element $g$ and its inverse $g^{-1}$ \emph{will} have the same cycle type and order. If we write out the disjoint cycle decomposition of $g$ and $g^{-1}$:
+\begin{align*}
+    g &= c_1 \circ \ldots \circ c_m \\
+    g^{-1} &= c_m^{-1} \circ \ldots \circ c_1^{-1}
+\end{align*}
+We see that $g^{-1}$ simply consists of the inverses of the cycles of $g$. An inverted cycle $c^{-1}$ has the same length as $c$, and therefore $g$ and $g^{-1}$ will have the same cycle type. Since order is a function of the cycle lengths (Proposition 2.3.12), they will also have the same order.
+
+\clearpage
+\section*{Question 2}
+
+
+\subsection*{a)}
+
+
+\subsection*{b)}
+
+
+\subsection*{c)}
+
+
+\clearpage
+\section*{Question 3}
+
+\subsection*{a)}
+
+For $z \in \mathbb{C}$ and $n \in \mathbb{Z}_{> 0}$, $z^n = 1$ implies that $|z| = 1$, and $Arg(z) =\frac{2 \pi k}{n}$, where $k \in \{0, \ldots, n - 1\}$. We will write $\frac{k}{n}$ as $w$, and observe that $w \in \mathbb{Q}$.\\
+
+Now let $a,b \in G$. Then the magnitude of their product $|ab| = |a||b| = 1$, and $|(ab)^n|=|ab|^n=1^n=1$. Similarly, for the argument:
+\begin{align*}
+    Arg(ab) &= Arg(a) + Arg(b)\\
+    &= 2 \pi w_a + 2 \pi w_b\\
+    &= 2 \pi (w_a + w_b)
+\end{align*}
+Then $w_{ab} = w_a + w_b$ is a rational number, and can be written as $w_{ab} = \frac{k}{n}$ for some $k$ and $n$. Then, $Arg((ab)^n) = Arg(ab) n = 2\pi k$. An argument that is an integer multiple of $2 \pi$, and a magnitude of $1$, means that $(ab)^n = 1$, and that therefore $ab \in G$. Multiplication is therefore a law of composition on $G$.
+
+Multiplication in $\mathbb{C}$ is associative, and $1 \in G$ is the identity element, since it is the multiplicative identity of $\mathbb{C}$.
+
+For inverses, recall that $a \in G$ implies $a^n = 1$ for some $n$. Therefore, $a^{n-1}a = a a^{n-1} = 1$, and $a^{n-1}$ is therefore the inverse of $a$. Since multiplication is a law of composition on $G$, we also have that $a^{n-1} \in G$. Then $a$ has an inverse in $G$.
+
+
+Since multiplication is a law of composition on $G$, and multiplication in $\mathbb{C}$ is associative, and there exists an identity element $1 \in G$, and every element in $G$ has an inverse, $G$ is a group under multiplication.
+
+
+\subsection*{b)}
+
+No, $1 \in G$, and $1 + 1 = 2 \notin G$.
+
+\end{document}
