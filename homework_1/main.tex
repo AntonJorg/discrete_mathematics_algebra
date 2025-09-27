@@ -52,11 +52,43 @@ We see that $g^{-1}$ simply consists of the inverses of the cycles of $g$. An in
 
 \subsection*{a)}
 
+For convenience define
+\begin{equation*}
+    f:=g\circ h\circ g^{-1}.
+\end{equation*}
+Now, let $M:=\{x\in\mathbb Z_n:h\circ g^{-1}x=g^{-1}x\}$, and take $x\in M$ chosen arbitrarily. Then $fx=g\circ h\circ g^{-1}x=g\circ g^{-1}x=x$, so $x$ is fixed by $f$. Since $g$ is bijective and $h$ is an $m$-cycle, we have $|M|=n-m$.
+
+Now we investigate what happens to the $m$ elements in $\mathbb Z_n\backslash M$. First, denote $h=(b_0b_1\dots b_m)$, and define $x_0=gb_0$. Note that since $b_0$ is not fixed by $h$, $x_0\notin M$. Then for $i>0$ define $x_i=f^ix_0$. From this definition it follows that 
+\begin{equation*}
+    x_i=f^ix_0=\underbrace{g\circ h \circ g^{-1}\circ\cdots\circ g\circ h \circ g^{-1}}_{i\text{ times}} x_0=g\circ h^i\circ g^{-1} x_0= g\circ h^i b_0= g b_i
+\end{equation*}
+and $x_m=f^m x_0 = g\circ h^m b_0=gb_0=x_0$.
+Since $h$ is an $m$-cycle $b_i\neq b_j$ for all $i\neq j$, so from bijectivity of $g$, we have $x_i\neq x_j$ for all $i\neq j$. Thus, we have $m$ mutually distinct elements that satisfy $x_i=fx_{i-1}$ and $x_m=x_0$. The rest of the elements in $\mathbb Z_n$ are fixed by $f$, so $g\circ h\circ g^{-1}$ is an $m$-cycle.
 
 \subsection*{b)}
+Let $h=c_1\circ c_2\circ\dots\circ c_k$ be an arbitrary permutation that is a disjoint composition of cycles $c_1,c_2,\dots,c_k$. Then if we 'squeeze in' $g^{-1}\circ g$ between each cycle, we get
+\begin{align*}
+    g \circ h\circ g^{-1} &= g \circ c_1 \circ c_2\circ\dots\circ c_k\circ g^{-1}\\
+    &= (g \circ c_1\circ g^{-1}) \circ (g \circ c_2\circ g^{-1}) \circ \dots \circ (g\circ  c_k\circ g^{-1})\\
+\end{align*}
+From a, this is a composition of $k$ cycles where the length of $c_j$ is the same as that of $g\circ c_j \circ g^{-1}$ for all $j=1 \ldots k$. Since $c_1,c_2,\dots,c_k$ are mutually disjoint, so are $(g \circ c_1\circ g^{-1}), (g \circ c_2\circ g^{-1}) , \dots , (g\circ  c_k\circ g^{-1})$. This is because, for all $x\in\mathbb Z_n$ there exist at most one cycle $c_j$ that satisfy $c_j\circ g^{-1}x\neq g^{-1}x$ or equivalently $g\circ c_j\circ g^{-1}x\neq x$. Hence, $h$ and $g\circ h\circ g^{-1}$ have the same cycle types.
 
-
+\clearpage
 \subsection*{c)}
+Assume $h\sim k$. Then $\exists g:k=g\circ h \circ g^{-1}$, which means that $ g^{-1}\circ k\circ g=h $, so also $k\sim h$.
+
+Clearly $h\sim h$ as we can just use $g=\text{id}$.
+
+Finally, assume $h\sim k$ and $k\sim f$. Then
+$\exists g:k=g\circ h \circ g^{-1}$ and $\exists w:k=w\circ h \circ w^{-1}$. This means that
+\begin{equation*}
+    h = g^{-1}\circ k\circ g = g^{-1}\circ w\circ h \circ w^{-1}\circ g.
+\end{equation*}
+with $q=g^{-1}\circ w$ we have $q^{-1}=w^{-1}\circ g$ so 
+$h=q\circ f\circ q^{-1}$ so $f\sim h$.
+
+Hence, symmetry, reflexivity and transitivity are satisfied so $\sim$ is an equivalenc relation.
+
 
 
 \clearpage
@@ -76,10 +108,17 @@ Then $w_{ab} = w_a + w_b$ is a rational number, and can be written as $w_{ab} = 
 
 Multiplication in $\mathbb{C}$ is associative, and $1 \in G$ is the identity element, since it is the multiplicative identity of $\mathbb{C}$.
 
-For inverses, recall that $a \in G$ implies $a^n = 1$ for some $n$. Therefore, $a^{n-1}a = a a^{n-1} = 1$, and $a^{n-1}$ is therefore the inverse of $a$. Since multiplication is a law of composition on $G$, we also have that $a^{n-1} \in G$. Then $a$ has an inverse in $G$.
+For inverses, recall that $a \in G$ implies $a^n = 1$ for some $n$. Therefore, $a^{n-1}a = a a^{n-1} = 1$, and $a^{n-1}$ is therefore the inverse of $a$. Since multiplication is a law of composition on $G$, we also have that $a^{n-1} \in G$. Then $a$ has an inverse in $G$. \\
 
+Since
 
-Since multiplication is a law of composition on $G$, and multiplication in $\mathbb{C}$ is associative, and there exists an identity element $1 \in G$, and every element in $G$ has an inverse, $G$ is a group under multiplication.
+\begin{enumerate}
+    \item multiplication is a law of composition on $G$,
+    \item multiplication in $\mathbb{C}$ is associative,
+    \item there exists an identity element $1 \in G$,
+    \item every element in $G$ has an inverse,
+\end{enumerate}
+$G$ is a group under multiplication.
 
 
 \subsection*{b)}
