@@ -1,0 +1,10 @@
+name = "algebra"
+version = "0.1.0"
+defaultTargets = ["algebra"]
+
+[[lean_lib]]
+name = "Algebra"
+
+[[lean_exe]]
+name = "algebra"
+root = "Main"
