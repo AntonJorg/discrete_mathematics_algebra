@@ -1,0 +1,78 @@
+\documentclass[a4paper,12pt]{article}
+
+% Math packages
+\usepackage{amsmath, amssymb, amsthm}
+
+% Header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\fancyhead{} % clear default
+\fancyhead[L]{Anton Thestrup Jørgensen}
+\fancyhead[R]{s194268}
+
+\begin{document}
+
+\section*{Question 1}
+
+\subsection*{a)}
+
+We define the map $\phi: \; D_3 \to S_3$ as:
+\begin{align*}
+    \phi(e) &= \mathrm{id} \\
+    \phi(r) &= (1 \; 2 \; 3) \\
+    \phi(s) &= (2 \; 3) \\
+    \phi(r^2) &= \phi(r) \circ \phi(r) = (1 \; 3 \; 2) \\
+    \phi(sr) &= \phi(s) \circ \phi(r) = (1 \; 3) \\
+    \phi(sr^2) &= \phi(s) \circ \phi(r) \circ \phi(r) =  (1 \; 2) \\
+\end{align*}
+This maps the elements of $D_3$ to their corresponding permutations of vertices on a triangle (a triangle standing on its base, labeled clockwise starting at the top vertex, rotations being clockwise, and mirroring around the vertical axis). We see that $\phi$ is a group homomorphism, since it satisfies the two group homomorphism criteria: it maps the identity of $D_3$ to that of $S_3$, and it preserves the group operation by construction.
+
+But $\phi$ is clearly surjective, and since it maps between two sets of the same (finite) cardinality, it is also injective. Therefore $\phi$ is a bijection, and is a group isomorphism. Since there exists a group isomorphism between $D_3$ and $S_3$, the two groups are isomorphic.
+
+\subsection*{b)}
+
+We define the map $\phi: \; D_n \to S_n$ as:
+
+\begin{align*}
+    \phi(e) &= \mathrm{id} \\
+    \phi(r^k) &= (1 \; 2 \; \ldots \; n)^k \\
+    \phi(s) &= \begin{cases}
+        (1)(2 \; n)(3 \; n - 1)\ldots &\text{if $n$ odd} \\
+        (1 \; n)(2 \; n - 1)(3 \; n - 2)\ldots &\text{if $n$ even}
+    \end{cases} \\
+    \phi(sr^k) &= \phi(s) \circ \phi(r^k)
+\end{align*}
+We see that $\phi$ is a group action by construction, and therefore a group homomorphism. By the same arguments as above, $\phi$ is a bijection, and is therefore a group isomorphism.
+
+\newpage
+\section*{Question 2}
+By the orbit-stabilizer theorem, the length of each orbit must divide $|G|$. Also, the orbits partition $A$, so the length of the orbits must sum to $|A|$. Since $|G|$ is given by its prime factors, we know that the only possible orbit lengths (dividing $|G|$) are $1$, $2$, and $17$. $59$ is not an option since orbits are subsets of $A$, and therefore must have lenght $\leq |A| = 20$. The shortest (meaning smallest number of terms) way to sum those three numbers to $20$ is $1 + 2 + 17$, so there must be at least $3$ orbits. If there is no orbits of length $1$, there is exactly $10$ orbits, since there is no way to sum $2$ and $17$ to get $20$, so we can only use the $2$'s, which we will have to do $10$ times ($2 \cdot 10 = 20$).
+
+\section*{Question 3}
+
+
+\subsection*{a)}
+
+To show that $R$ is regular, we must show that for all $x \in R$, there exists a $y \in R$ such that $x = x^2 \cdot y$. Since $R$ is a field, $R^* = R \setminus \{0\}$, that is, all non-zero elements in $R$ have a multiplicative inverse. We therefore have two cases, $x = 0$ and $x \neq 0$.
+
+For $x = 0$, we have $0 = 0^2 \cdot y$ for \emph{any} $y \in R$ (since multiplication distributes, ex. 7.11), so there certainly exists one such $y$.
+
+For $x \neq 0$ we choose $y = x^{-1}$, which we can do since $x \in R^*$:
+\begin{align*}
+    x^2 \cdot y &= x^2 \cdot x^{-1} \\
+    &= (x \cdot x) \cdot x^{-1} \\
+    &= x \cdot (x \cdot x^{-1}) \\
+    &= x \cdot 1 \\
+    &= x
+\end{align*}
+
+Therefore $R$ is regular. 
+
+\subsection*{b)}
+
+Take $x \in R$, $x \neq 0$. Since $R$ is regular, we can choose a $y$ such that $x = x^2 \cdot y$. Since $x = x \cdot 1$, we also have $x \cdot 1 = x^2 \cdot y$ by transitivity. We can now cancel $x$ out from the left, since $x \neq 0$ and $R$ is a domain, giving $1 = x \cdot y$. So $y$ is an element which, when multiplied by $x$ gives $1$, which means that $y = x^{-1}$. 
+
+The only restriction we put on $x$ was that it was not equal to $0$. Therefore any $x \neq 0$ has a multiplicative inverse, and $R^* = R \setminus \{0\}$ ($0$ is never a unit, since no element can be multiplied by $0$ to get $1$). $R$ is therefore a field.
+
+\end{document}

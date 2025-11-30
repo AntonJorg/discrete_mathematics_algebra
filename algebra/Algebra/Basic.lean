@@ -13,11 +13,11 @@ variable {G : Type} [Group G]
 
 -- We can 'divide out' from the left
 @[simp]
-theorem mul_left_cancel (a b c : G) (Habac: a * b = a * c) : b = c := by
+theorem mul_left_cancel (a b c : G) (h: a * b = a * c) : b = c := by
    rw [← one_mul c]
    rw [← mul_left_inv a]
    rw [mul_assoc]
-   rw [← Habac]
+   rw [← h]
    rw [← mul_assoc]
    rw [mul_left_inv]
    rw [one_mul]
